@@ -1,22 +1,48 @@
 import os
 from Informes import auto
+from Objetos import *
+import time
 
-# lee las carpetas presentes en la seccion de informes
-path = "C:/Users/Lenovo/Downloads/TEST"
-dirs = os.listdir(path)
+inicio = time.time()
 
 
+location = "C:/Users/Lenovo/Downloads/TEST"
+directorios = os.listdir(location)
 direcciones = {}
+counter = 0
 
 
-# guarda cada ruta en un diccionario con la key del nombre de la carpeta y el valor es el path
-for d in dirs:
-    direcciones.update({d: path + "/" + d})
+for carpeta in directorios:
+    ruta = location + "/" + carpeta
+    direcciones.update({carpeta: ruta})
 
-# Por cada key en el diccionario accede a la ubicacion de la carpeta y revisa cuantos informes hay por modificar
-for tipo in direcciones:
-    informes = os.listdir(direcciones[f"{tipo}"])
-    location = direcciones[f"{tipo}"]
-    if tipo == "BOTELLA" and len(informes) > 0:
-        auto(tipo,location)
+# Buscar la conatidad de informes en cada tipo de informe
+print("Cargando")
+for i in direcciones:
+    if i == "BOTELLA":
+        informes = os.listdir(direcciones[i])
+        for doc in informes:
+            tempLoc = direcciones[i] + "/" + doc
+            b = Botella(tempLoc)
+            b.automatizar()
+            counter += 1
+        print("Botella terminados")
 
+    elif i == "TELESCOPICOS":
+        informes = os.listdir(direcciones[i])
+        for doc in informes:
+            tempLoc = direcciones[i] + "/" + doc
+            tc = Telescopico(tempLoc)
+            tc.automatizar()
+            counter += 1
+        print("Telescopicos terminados")
+    # elif i == "TIRANTES":
+    #     informes = os.listdir(direcciones[i])
+    #     for doc in informes:
+    #         tempLoc = direcciones[i] + "/" + doc
+    #         t = Telescopico(tempLoc)
+    #         t.automatizar()
+print("Informes terminados")
+fin = time.time()
+duracion = round(fin - inicio, 1)
+print(f"Se realizaron {counter} informes en {duracion} segundos")

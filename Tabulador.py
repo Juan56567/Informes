@@ -1,15 +1,17 @@
 from docx import Document
 
-doc = Document("documento_modificado.docx")
+doc = Document("C:/Users/Lenovo/Desktop/PROYECTOS JUAN DIEGO/WORD/INFORME CHTC.docx")
+
+tables = doc.tables
 
 # Recorre todas las tablas en el documento
-for table in doc.tables:
+for table in tables:
     for i, row in enumerate(table.rows):
         for j, cell in enumerate(row.cells):
             # Reemplaza el contenido de la celda con el índice
-            cell.text = f"{i}, {j}"
+            cell.text = f"{tables.index(table)},{    i}, {j}"
 
 # Guarda el documento modificado
-doc.save("documento_modificado.docx")
+doc.save("C:/Users/Lenovo/Desktop/PROYECTOS JUAN DIEGO/PYTHON/TAB CHTC.docx")
 
 print("Reemplazo de celdas con índices completado con éxito.")

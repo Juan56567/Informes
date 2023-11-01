@@ -10,7 +10,15 @@ def auto(
     location = location
     datos = os.listdir(location)
 
-    if tipo == "BOTELLA":
+    print("Cargando")
+
+    counter = 0
+    for i in datos:
+        temp = location + "/" + i
+        doc = Document(temp)
+        tables = doc.tables
+
+        # AGREGAR EN UN LISTA TODAS LAS CELDAS A CAMBIAR
         camisa = tables[1].cell(26, 11)
         vastago = tables[1].cell(26, 25)
         piston = tables[2].cell(3, 0)
@@ -19,16 +27,6 @@ def auto(
         tapa = tables[2].cell(7, 1)
         fecha = tables[1].cell(4, 25)
         componentes = [camisa, vastago, piston, montajeF, montajeP, tapa]
-    else:
-        pass
-
-    print("Cargando")
-
-    counter = 0
-    for i in datos:
-        temp = location + "/" + i
-        doc = Document(temp)
-        tables = doc.tables
 
         # CAMBIAR EL FORMATO DE LA FECHA
         ftemp = fecha.text.split(",")
@@ -39,8 +37,7 @@ def auto(
             if len(read.text) < 2:
                 read.text = "BUENO"
 
-        # AGREGAR EN UN LISTA TODAS LAS CELDAS A CAMBIAR
-
+        #LEER CADA CELDA DE LA LISTA PREVIAMENTE CREADA 
         for c in componentes:
             text = c.text.split("-")
             if len(text) > 1:
