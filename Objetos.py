@@ -94,3 +94,25 @@ class Telescopico(Botella):
             self.montajeP,
             self.tapa,
         ]
+
+
+class Tirantes(Botella):
+    def __init__(self, location):
+        self.location = location
+        self.doc = Document(self.location)
+        self.tables = self.doc.tables
+        self.camisa = self.tables[1].cell(27, 11)
+        self.vastago = self.tables[1].cell(27, 22)
+        self.piston = self.tables[2].cell(3, 0)
+        self.montajeF = self.tables[2].cell(3, 1)
+        self.montajeP = self.tables[2].cell(7, 0)
+        self.tapa = self.tables[2].cell(7, 1)
+        self.fecha = self.tables[1].cell(4, 25)
+        self.componentes = [
+            self.camisa,
+            self.vastago,
+            self.piston,
+            self.montajeF,
+            self.montajeP,
+            self.tapa,
+        ]

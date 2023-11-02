@@ -29,6 +29,7 @@ for i in direcciones:
         print("Botella terminados")
 
     elif i == "TELESCOPICOS":
+        print("Cargando")
         informes = os.listdir(direcciones[i])
         for doc in informes:
             tempLoc = direcciones[i] + "/" + doc
@@ -36,13 +37,19 @@ for i in direcciones:
             tc.automatizar()
             counter += 1
         print("Telescopicos terminados")
-    # elif i == "TIRANTES":
-    #     informes = os.listdir(direcciones[i])
-    #     for doc in informes:
-    #         tempLoc = direcciones[i] + "/" + doc
-    #         t = Telescopico(tempLoc)
-    #         t.automatizar()
+
+    elif i == "TIRANTES":
+        print("Cargando")
+        informes = os.listdir(direcciones[i])
+        for doc in informes:
+            tempLoc = direcciones[i] + "/" + doc
+            t = Tirantes(tempLoc)
+            t.automatizar()
+            counter += 1
+        print("Tirantes termiandos")
+
 print("Informes terminados")
+
 fin = time.time()
 duracion = round(fin - inicio, 1)
 print(f"Se realizaron {counter} informes en {duracion} segundos")
