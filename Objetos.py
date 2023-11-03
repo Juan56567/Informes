@@ -116,3 +116,24 @@ class Tirantes(Botella):
             self.montajeP,
             self.tapa,
         ]
+
+class Buzo(Botella):
+    def __init__(self, location):
+        self.location = location
+        self.doc = Document(self.location)
+        self.tables = self.doc.tables
+        self.camisa = self.tables[1].cell(23, 10)
+        self.vastago = self.tables[1].cell(23, 20)
+        self.piston = self.tables[2].cell(3, 1)
+        self.montajeF = self.tables[2].cell(3, 0)
+        self.montajeP = self.tables[2].cell(7, 1)
+        self.tapa = self.tables[2].cell(7, 0)
+        self.fecha = self.tables[1].cell(4, 20)
+        self.componentes = [
+            self.camisa,
+            self.vastago,
+            self.piston,
+            self.montajeF,
+            self.montajeP,
+            self.tapa,
+        ]

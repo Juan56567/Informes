@@ -1,6 +1,6 @@
 from docx import Document
 
-doc = Document("C:/Users/Lenovo/Desktop/PROYECTOS JUAN DIEGO/WORD/INFORME CHTC.docx")
+doc = Document("C:/Users/Lenovo/Desktop/PROYECTOS JUAN DIEGO/WORD/INFORME CHTZ.docx")
 
 tables = doc.tables
 
@@ -12,6 +12,6 @@ for table in tables:
             cell.text = f"{tables.index(table)},{    i}, {j}"
 
 # Guarda el documento modificado
-doc.save("C:/Users/Lenovo/Desktop/PROYECTOS JUAN DIEGO/PYTHON/TAB CHTC.docx")
+doc.save("C:/Users/Lenovo/Desktop/PROYECTOS JUAN DIEGO/PYTHON/TAB CHTZ.docx")
 
 print("Reemplazo de celdas con índices completado con éxito.")

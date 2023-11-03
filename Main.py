@@ -4,8 +4,6 @@ from Objetos import *
 import time
 
 inicio = time.time()
-
-
 location = "C:/Users/Lenovo/Downloads/TEST"
 directorios = os.listdir(location)
 direcciones = {}
@@ -25,31 +23,37 @@ for i in direcciones:
             tempLoc = direcciones[i] + "/" + doc
             b = Botella(tempLoc)
             b.automatizar()
+            print(doc)
             counter += 1
-        print("Botella terminados")
 
     elif i == "TELESCOPICOS":
-        print("Cargando")
         informes = os.listdir(direcciones[i])
         for doc in informes:
             tempLoc = direcciones[i] + "/" + doc
             tc = Telescopico(tempLoc)
             tc.automatizar()
+            print(doc)
             counter += 1
-        print("Telescopicos terminados")
 
     elif i == "TIRANTES":
-        print("Cargando")
         informes = os.listdir(direcciones[i])
         for doc in informes:
             tempLoc = direcciones[i] + "/" + doc
-            t = Tirantes(tempLoc)
-            t.automatizar()
+            tt = Tirantes(tempLoc)
+            tt.automatizar()
+            print(doc)
             counter += 1
-        print("Tirantes termiandos")
+    
+    elif i == "BUZOS":
+        informes = os.listdir(direcciones[i])
+        for doc in informes:
+            tempLoc = direcciones[i] + "/" + doc
+            bz = Buzo(tempLoc)
+            bz.automatizar()
+            print(doc)
+            counter += 1
+    else:
+        pass
 
-print("Informes terminados")
 
-fin = time.time()
-duracion = round(fin - inicio, 1)
-print(f"Se realizaron {counter} informes en {duracion} segundos")
+print(counter," Informes listos para revisión")
