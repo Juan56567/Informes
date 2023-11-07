@@ -71,7 +71,6 @@ class Botella:
 
         self.doc.save(self.location)
 
-
 class Telescopico(Botella):
     def __init__(self, location):
         self.location = location
@@ -94,7 +93,6 @@ class Telescopico(Botella):
             self.montajeP,
             self.tapa,
         ]
-
 
 class Tirantes(Botella):
     def __init__(self, location):

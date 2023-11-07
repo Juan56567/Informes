@@ -4,7 +4,7 @@ from Objetos import *
 import time
 
 inicio = time.time()
-location = "C:/Users/Lenovo/Downloads/TEST"
+location = "C:/Users/Lenovo/Dropbox/Aplicaciones/Kizeo Forms/INFORMES"
 directorios = os.listdir(location)
 direcciones = {}
 counter = 0
