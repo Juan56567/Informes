@@ -1,5 +1,4 @@
 import os
-from Informes import auto
 from Objetos import *
 import time
 
