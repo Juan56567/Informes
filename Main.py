@@ -4,14 +4,9 @@ import time
 
 inicio = time.time()
 location = "C:/Users/Lenovo/Dropbox/Aplicaciones/Kizeo Forms/INFORMES"
-directorios = os.listdir(location)
-direcciones = {}
+
 counter = 0
-
-
-for carpeta in directorios:
-    ruta = location + "/" + carpeta
-    direcciones.update({carpeta: ruta})
+direcciones = {carpeta : location + "/" + carpeta for carpeta in os.listdir(location)}
 
 # Buscar la conatidad de informes en cada tipo de informe
 print("Cargando")
@@ -55,5 +50,7 @@ for i in direcciones:
         pass
 
 
-print(counter," Informes listos para revisión")
+fin = round((time.time() - inicio),3)
+
+print(counter," Informes listos para revisión" , fin)
 

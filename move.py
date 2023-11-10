@@ -1,5 +1,9 @@
 import os
 import shutil
+import time
+
+
+inicio = time.time()
 
 lm = "C:/Users/Lenovo/Dropbox/03. PRODUCCION ORDEN DE TRABAJO"
 lf = "C:/Users/Lenovo/Dropbox/Aplicaciones/Kizeo Forms/DIAGNOSTICOS"
@@ -32,3 +36,6 @@ for x in fDirecciones:
         print(x, "No se encuentra en la carpeta de produccion")
     except PermissionError:
         print(x , " No se puede borrar")
+
+fin = round((time.time() - inicio),3)
+print(fin)
